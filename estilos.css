@@ -1,0 +1,210 @@
+/* Variables de color y tipografía */
+:root{
+  --brand:#007bff;
+  --brand-dark:#0056b3;
+  --bg:#f8f9fa;
+  --text:#222;
+  --muted:#666;
+  --footer:#333;
+  --radius:12px;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Accesibilidad: enlace para saltar al contenido */
+.skip-link{
+  position:absolute; left:-9999px; top:auto;
+}
+.skip-link:focus{
+  left:1rem; top:1rem; background:#fff; border:2px solid var(--brand);
+  padding:.5rem .75rem; border-radius:.5rem; z-index:1000;
+}
+
+/* Contenedor centrado */
+.container{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* Header y navegación */
+.site-header{
+  background: var(--brand);
+  color:#fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+}
+.site-header .container{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 18px 0;
+}
+.brand{ margin:0; font-size:1.4rem; letter-spacing:.5px; }
+
+.main-nav ul{
+  list-style:none; margin:0; padding:0; display:flex; gap:1rem;
+}
+.main-nav a{
+  color:#fff; text-decoration:none; font-weight:600; padding:.4rem .6rem;
+  border-radius:.5rem;
+}
+.main-nav a:hover,
+.main-nav a:focus-visible{
+  background:rgba(255,255,255,.15);
+  outline:none;
+}
+
+/* Secciones */
+.section{ padding: 48px 0; }
+
+.hero{
+  text-align:center; padding: 56px 0;
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 8px 24px rgba(0,123,255,.08);
+  border-radius: 0 0 12px 12px;
+}
+.hero h2{ margin-top:0; font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.hero p{ color: #f0f0f0; max-width: 60ch; margin: .5rem auto 1.25rem; }
+
+/* Botones base */
+button, .cta{
+  background: var(--brand);
+  color:#fff;
+  padding: .75rem 1.1rem;
+  border:none;
+  border-radius: var(--radius);
+  cursor:pointer;
+  font-weight:700;
+  transition: background-color .25s ease, transform .1s ease;
+}
+button:hover, .cta:hover{ background: var(--brand-dark); }
+button:active, .cta:active{ transform: translateY(1px); }
+button:focus-visible, .cta:focus-visible{
+  outline: 3px solid #fff; box-shadow: 0 0 0 4px var(--brand);
+}
+
+/* Botón blanco del hero (resalta mejor) */
+.hero .cta {
+  background: #fff;
+  color: var(--brand);
+  border: 2px solid #fff;
+  transition: all 0.25s ease;
+}
+.hero .cta:hover {
+  background: var(--brand-dark);
+  color: #fff;
+  border-color: var(--brand-dark);
+}
+
+/* Botón tipo Spoiler (sutil, estilo enlace) */
+button.spoiler {
+  background: none;
+  color: var(--brand);
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  margin-left: 4px;
+  transition: color 0.2s ease;
+}
+button.spoiler:hover {
+  color: var(--brand-dark);
+}
+
+/* Cards de servicios */
+.cards{
+  list-style:none; margin: 1rem 0 0; padding:0;
+  display:grid; gap:16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.card{
+  background:#fff; border-radius: var(--radius); padding:18px 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  text-align:center;
+}
+.card h3{ margin-top:.25rem; margin-bottom:.5rem; }
+.card p{ color:var(--muted); margin:0; }
+
+/* Formulario de contacto */
+.contact-form{
+  margin-top: 1rem;
+  display:grid; gap:12px;
+  max-width: 540px;
+}
+.contact-form label{
+  display:grid; gap:8px; font-weight:600;
+}
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:.65rem .75rem;
+  border:1px solid #ddd;
+  border-radius: .6rem;
+  font: inherit;
+  background:#fff;
+}
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible{
+  outline: 3px solid #fff; box-shadow: 0 0 0 4px var(--brand);
+}
+
+/* Footer */
+.site-footer{
+  background: var(--footer);
+  color:#fff;
+  margin-top: 40px;
+}
+.site-footer .container{
+  padding: 14px 0;
+  text-align:center;
+  font-size:.95rem;
+  letter-spacing: 0.3px;
+}
+.site-footer p{
+  margin:0;
+  opacity:0.9;
+}
+
+/* =========================
+   Responsive (móviles/tablets)
+   ========================= */
+@media (max-width: 700px) {
+  .container{ width: 92%; }
+
+  .site-header .container{
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 0;
+  }
+
+  .main-nav ul{ flex-direction: column; gap: 6px; }
+  .main-nav a{ display: inline-block; padding: .6rem .9rem; }
+
+  .hero{
+    padding: 36px 0;
+    border-radius: 0;
+    box-shadow: none;
+    text-align: center;
+  }
+  .hero h2{ font-size: 1.4rem; }
+  .hero p{ margin: .5rem auto 1rem; }
+  .hero .cta{ width: 100%; max-width: 360px; }
+
+  .cards{ grid-template-columns: 1fr; }
+
+  .contact-form{ width: 100%; }
+  .contact-form input,
+  .contact-form textarea{ padding: .8rem .9rem; }
+}

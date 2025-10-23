@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Crea Tu Sitio: diseño y desarrollo web profesional. Sitios rápidos, accesibles y modernos para pymes y autónomos." />
+  <title>CREA TU SITIO - Diseño y desarrollo web profesional</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <!-- Enlace para accesibilidad: saltar al contenido -->
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="brand">¿TE GUSTA ESTA WEB?</h1>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#sobre">Sobre nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" class="hero container">
+      <h2>¡Pues hazte con una como esta!</h2>
+      <p>Creamos tu web a medida: corporativas, tiendas online e incluso para la Tarea de la Unidad 1 de Aplicaciones Web.</p>
+      <button type="button" class="cta" onclick="alert('Estado de la calificación: Sin calificar')">
+        Solicitar calificación de su tarea
+      </button>
+    </section>
+
+    <section id="servicios" class="container section">
+      <h2>Nuestros servicios</h2>
+      <ul class="cards">
+        <li class="card">
+          <h3>Diseño Web</h3>
+          <p>Webs rápidas, accesibles y preparadas para SEO.</p>
+        </li>
+        <li class="card">
+          <h3>Tiendas Online</h3>
+          <p>Ecommerce optimizado para conversión y pagos seguros.</p>
+        </li>
+        <li class="card">
+          <h3>Tarea Unidad 1</h3>
+          <p>Optimizado para conseguir un 10.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="sobre" class="container section">
+      <h2>Sobre nosotros</h2>
+      <p>
+        Somos un equipo especializado en 
+        <button type="button" class="spoiler" onclick="alert('Beber café y ver series')">
+          Spoiler
+        </button>
+      </p>
+      <p>
+        Trabajamos con estándares modernos (HTML5, CSS3) para entregar tareas sólidas y fáciles de crear.
+      </p>
+    </section>
+
+    <section id="contacto" class="container section">
+      <h2>Contacto</h2>
+      <p>Escríbenos y te responderemos cuando acabe One Piece.</p>
+      <!-- Formulario solo visual (sin backend) -->
+      <form class="contact-form" onsubmit="alert('Se nos acabó el café, le contestaremos ASAP'); return false;">
+        <label>
+          Nombre
+          <input type="text" name="nombre" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Mensaje
+          <textarea name="mensaje" rows="4" required></textarea>
+        </label>
+        <button type="submit" class="cta">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Make-A-Wish — Un 10 para Mario Martínez Rojano</p>
+    </div>
+  </footer>
+
+  <script>
+    // año automático en el pie
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
